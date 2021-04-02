@@ -29,11 +29,11 @@ class MCIntegral{
         srand(static_cast<unsigned int>(clock()));
         for (int i=0; i < N_; i++) 
         {
-            theta.push_back(double(rand())*0.5*M_PI / (double(RAND_MAX) + 1.0));
+            theta.push_back(double(rand())*M_PI / (double(RAND_MAX) + 1.0));
         }
 
         double theta_a = 0;
-        double theta_b = 0.5*M_PI;
+        double theta_b = M_PI;
         
         double phi_a = 0;
         double phi_b = 2*M_PI;
