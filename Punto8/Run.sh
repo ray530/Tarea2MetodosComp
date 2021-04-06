@@ -1,1 +1,1 @@
-./Colisiones 10000000 | gnuplot
+./Punto8 10000000 | gnuplot
