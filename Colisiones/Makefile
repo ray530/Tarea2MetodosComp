@@ -5,7 +5,7 @@ CFLAGS = -std=c++11 -Wall -I$(INCDIR)
 SRCDIR = $(DIR)/src
 INCDIR = $(DIR)/inc
 OBJDIR = $(DIR)/obj
-EXE = Punto8
+EXE = Colisiones
 
 OBJECT = $(OBJDIR)/main.o $(OBJDIR)/Particle.o
 

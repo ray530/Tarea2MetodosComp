@@ -3,16 +3,8 @@
 Particle::Particle(){
 }
 
-Particle::Particle(double x_,double y_, double vx_, double vy_, double m_, double r_, double ID_){
-	x=x_;
-	y=y_;
-	vx=vx_;
-	vy=vy_;
-	m=m_;
-	r=r_;
-	ID=ID_;
-	ax=0.;
-	ay=0.;
+Particle::Particle(double x_,double y_, double vx_, double vy_, double m_, double r_, double ID_): x(x_), y(y_), vx(vx_), vy(vy_), m(m_), r(r_), ID(ID_){
+ 
 }
 
 Particle::~Particle(){
@@ -35,6 +27,7 @@ double Particle::getVy(){
 double Particle::getM(){
 	return m;
 }
+
 void Particle::updateAcceleration(double Fx_, double Fy_)
 {
 	ax = Fx_/m;
@@ -55,35 +48,28 @@ void Particle::CheckCollision(Particle* p2)
 		Fx=0.;
 		Fy=0.;
 	}
-	updateAcceleration(Fx,Fy);
-	p2->updateAcceleration(-Fx,-Fy);
+	ax = Fx/m;
+	ay = Fy/m;
+	//p2->updateAcceleration(-Fx,-Fy);
 	
 }
+
 void Particle::Print1()
 {
-	cout << "ID: " << ID << " , x: " << x << " , y: " << y << " , vx: " << vx << " , vy: " << vy << " , ax: " << ax << " , ay: " << ay << " , p: " << calculateMomentum() << endl;
+	std::cout << "ID: " << ID << " , x: " << x << " , y: " << y << " , vx: " << vx << " , vy: " << vy << " , ax: " << ax << " , ay: " << ay << std::endl;
 }
 
-void Particle::Move(double t_, double deltat, int it)
-{
-	t=t_;
-	x += (vx*deltat)+(0.5*ax*pow(deltat,2));
-	y += (vy*deltat)+(0.5*ay*pow(deltat,2));
-	vx += ax*deltat;
-	vy += ay*deltat;
-}
 
 double Particle::calculateMomentum()
 {
 	return m*sqrt(pow(vx,2)+pow(vy,2));
 }
 
-
 void Particle::SetWallLimits(double Wxmin_, double Wxmax_, double Wymin_, double Wymax_){
-	Wxmin = Wxmin_;
-	Wxmax = Wxmax_;
-	Wymin = Wymin_;
-	Wymax = Wymax_;
+Wxmin = Wxmin_;
+Wxmax = Wxmax_;
+Wymin = Wymin_;
+Wymax = Wymax_;
 }
 
 void Particle::ChangeWallLimits(double deltat, double v, double lim_){
@@ -102,5 +88,16 @@ void Particle::CheckWallLimits(){
 
 void Particle::Print(){
  std::cout <<" , "<<x<<"+"<<r<<"*cos(t),"<<y<<"+"<<r<<"*sin(t)";
+}
+
+void Particle::Move(double t_, double deltat, int it){
+
+
+	t=t_;
+	x += (vx*deltat)+(0.5*ax*pow(deltat,2));
+	y += (vy*deltat)+(0.5*ay*pow(deltat,2));
+	vx += ax*deltat;
+	vy += ay*deltat;
+
 }
 

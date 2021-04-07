@@ -5,16 +5,12 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
-#include <stdlib.h>
-#include <cmath>
 // Random
 
 #include <random>
 #include <cstdlib>
 #include <ctime>
 #include <time.h>
-
-using namespace std;
 
 class Particle{
 	
