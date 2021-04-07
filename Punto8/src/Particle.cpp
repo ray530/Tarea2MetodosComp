@@ -3,7 +3,7 @@
 Particle::Particle(){
 }
 
-Particle::Particle(double x_,double y_, double vx_, double vy_, double m_, double r_, double ID_): x(x_), y(y_), vx(vx_), vy(vy_), m(m_), r(r_), ID(ID_){
+Particle::Particle(double x_,double y_, double vx_, double vy_, double m_, double r_, double ID_){
 	x=x_;
 	y=y_;
 	vx=vx_;

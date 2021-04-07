@@ -7,7 +7,7 @@ void StartAnim(){
   std::cout<<"set yrange [-50:50]"<<std::endl;
   std::cout<<"set size ratio -1"<<std::endl;
   std::cout<<"set parametric"<<std::endl;
-  std::cout<<"set trange [0:0.03]"<<std::endl;//Cambiar tiempo final
+  std::cout<<"set trange [0:7]"<<std::endl;//Cambiar tiempo final
   std::cout<<"set isosamples 12"<<std::endl;
 
 }
@@ -25,9 +25,9 @@ int main(int argc, char *argv[]){
 
 	// Evolucion 
 	
-    int films = 5000;        
+    int films = 100;        
 	int NParticles = 5;
-	
+
 	double deltat = 0.001;
 	double tmax = std::stof(argv[1]);
 	int it = 0;
